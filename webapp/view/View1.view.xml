@@ -1,0 +1,35 @@
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="gutendex.com.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page" title="{i18n>title}">
+                    <SearchField value="{modelControl>/searchValue}" search="onSearch"/>
+                    <!-- <StepInput value="{modelControl>/searchValue}" change="onSearch"/>-->
+                    <form:SimpleForm>
+                        <Text text="Informações livros"/>
+                        <Label text="Id Livro" />
+                        <Input value="{modelData>/results/0/id}"/>
+                        <Label text="Título Livro" />
+                        <Input value="{modelData>/results/0/title}"/>
+                    </form:SimpleForm>
+                    <List items="{modelData>/results/0/authors/}">
+                        <items>
+                            <CustomListItem>
+                                <form:SimpleForm>
+                                    <Label text="Nome" />
+                                    <Text text="{modelData>name}"/>
+                                    <Label text="Ano nascimento" />
+                                    <Text text="{modelData>birth_year}"/>
+                                    <Label text="Ano em que ele se encontrou com Jesus Cristo" />
+                                    <Text text="{modelData>death_year}"/>
+                                </form:SimpleForm>
+                            </CustomListItem>
+                        </items>
+                    </List>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>
